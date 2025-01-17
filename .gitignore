@@ -1,0 +1,6 @@
+.vscode/
+textures/
+
+.DS_Store
+build.sh
+main
