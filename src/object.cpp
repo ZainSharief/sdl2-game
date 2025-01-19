@@ -17,13 +17,13 @@ void Object::render(SDL_Renderer* renderer)
 
 void Object::incPosition(vec2 velocity, float deltaTime)
 {
-    position = addVec2(position, multVec2(velocity, vec2(deltaTime, deltaTime)));
+    position = position + (velocity * deltaTime);
     bindPosition();
 }
 
 void Object::decPosition(vec2 pos)
 {
-    position = subVec2(position, pos);
+    position = position - pos;
     bindPosition();
 }
 

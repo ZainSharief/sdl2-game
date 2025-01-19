@@ -29,20 +29,20 @@ void eventHandler(SDL_Event event, Player* player, std::unordered_map<SDL_Keycod
     vec2 movement = vec2(0, 0);
 
     if (keyStates[SDLK_w]){
-        movement = addVec2(movement, vec2(0, -1));
+        movement = movement + vec2(0, -1);
     }
     if (keyStates[SDLK_s]){
-        movement = addVec2(movement, vec2(0, 1));
+        movement = movement + vec2(0, 1);
     }
     if (keyStates[SDLK_a]){
-        movement = addVec2(movement, vec2(-1, 0));
+        movement = movement + vec2(-1, 0);
     }
     if (keyStates[SDLK_d]){
-        movement = addVec2(movement, vec2(1, 0));
+        movement = movement + vec2(1, 0);
     }
 
-    movement = normaliseVec2(movement);
-    movement = multVec2(movement, vec2(player->getMaxSpeed(), player->getMaxSpeed()));
+    movement = movement.normalize();
+    movement = movement * player->getMaxSpeed();
 
     player->setVelocity(movement);
     player->incPosition(player->getVelocity(), deltaTime);
