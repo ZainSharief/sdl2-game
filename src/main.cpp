@@ -1,5 +1,6 @@
 #include <iostream>
 
+#include "map.h"
 #include "screen.h"
 #include "player.h"
 
@@ -55,10 +56,10 @@ int main(int argc, char* argv[])
     SDL_Event event;
     std::unordered_map<SDL_Keycode, bool> keyStates;
 
+    Map map(101, 2, 400, 8, screen.getRenderer()); // seed, chunksize, blocksize, octaves renderer
     Player player("textures/sprite/sprite_stationary.png", screen.getRenderer(), 100, vec2(0, 0));
 
     int frameBuffer = 0;
-
     Uint64 currentFrame = SDL_GetPerformanceCounter();
     Uint64 previousFrame = 0;
     double deltaTime = 0.0f;
@@ -67,7 +68,7 @@ int main(int argc, char* argv[])
     {
         previousFrame = currentFrame;
         currentFrame = SDL_GetPerformanceCounter();
-        deltaTime = (currentFrame - previousFrame) / (double)SDL_GetPerformanceFrequency();
+        deltaTime = (currentFrame - previousFrame) / (double) SDL_GetPerformanceFrequency();
 
         /**frameBuffer += 1;
         if (frameBuffer == 60) {
@@ -76,7 +77,10 @@ int main(int argc, char* argv[])
         }*/
 
         screen.display();
+        
+        map.render(screen.getRenderer());
         player.render(screen.getRenderer());
+
         screen.render();
 
         eventHandler(event, &player, keyStates, deltaTime);

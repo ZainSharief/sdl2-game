@@ -1,12 +1,9 @@
 #include "player.h"
 
-#include <iostream>
-#include <algorithm> 
-
 Player::Player(const char *path, SDL_Renderer *renderer, int maxHealth, vec2 position)
     : Object(path, renderer, position), maxHealth(maxHealth), health(maxHealth)
 {
-    maxSpeed = 200;
+    maxSpeed = 100;
     velocity = vec2(0, 0);
 }
 

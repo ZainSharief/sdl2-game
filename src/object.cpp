@@ -1,7 +1,5 @@
 #include "object.h"
 
-#include <iostream>
-
 Object::Object(const char* path, SDL_Renderer* renderer, vec2 position)
     : position(position)
 {
@@ -42,8 +40,8 @@ void Object::bindPosition()
         position.x = 0;
     }
 
-    if (position.y > 600 - ysize) {
-        position.y = 600 - ysize;
+    if (position.y > 800 - ysize) {
+        position.y = 800 - ysize;
     } else if (position.y < 0) {
         position.y = 0;
     }

@@ -57,7 +57,7 @@ struct vec2 {
     // Compute the cross product between vectors
     float cross(const vec2& other) const {
         return x * other.y - y * other.x;
-}
+    }
 };
 
 #endif

@@ -10,7 +10,7 @@ Screen::Screen()
         SDL_WINDOWPOS_CENTERED,        
         SDL_WINDOWPOS_CENTERED,        
         800,                           
-        600,                           
+        800,                           
         SDL_WINDOW_SHOWN               
     );
 
