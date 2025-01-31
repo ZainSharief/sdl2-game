@@ -8,23 +8,20 @@
 
 class Object
 {
-    private:
-        vec2 position;
-        int xsize;
-        int ysize;
-
     public:
-        SDL_Texture* texture;
-        vec2 size;
-
         Object(const char*, SDL_Renderer*, vec2);
         void render(SDL_Renderer*);
 
         void incPosition(vec2, float);
-        void decPosition(vec2);
         void setPosition(vec2);
-        void bindPosition();
         vec2 getPosition();
+
+    private:
+        SDL_Texture* texture;
+
+        vec2 position;
+        int xsize;
+        int ysize;    
 };
 
 #endif

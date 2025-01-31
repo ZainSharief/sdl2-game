@@ -2,29 +2,10 @@
 
 #include <iostream>
 
-Map::Map(const unsigned seed, const unsigned chunkSize, const unsigned blockSize, const unsigned octaves, SDL_Renderer* renderer)
+Map::Map(const unsigned seed, const unsigned chunkSize, const unsigned blockSize, const unsigned octaves)
 {
     PerlinNoise noise(seed, chunkSize, blockSize, octaves);
     std::vector<std::vector<float> > map = noise.generateChunk(0, 0);
-
-    std::vector<Uint32> pixelBuffer(800 * 800);
-
-    for (int y = 0; y < blockSize * chunkSize; y++){
-        for (int x = 0; x < blockSize * chunkSize; x++){
-            Uint8 color = static_cast<Uint8>(map[x][y]); // Ensure pixel value is in [0, 255]
-            Uint32 pixel = (color << 16) | (color << 8) | color; // RGB format (grayscale)
-            pixelBuffer[y * 800 + x] = pixel;
-        }
-    }
-
-    texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGB888, SDL_TEXTUREACCESS_STREAMING, 800, 800);
-    SDL_UpdateTexture(texture, nullptr, pixelBuffer.data(), 800 * sizeof(Uint32));
-    
-}
-
-void Map::render(SDL_Renderer* renderer) 
-{
-    SDL_RenderCopy(renderer, texture, nullptr, nullptr);
 }
 
 PerlinNoise::PerlinNoise(const unsigned seed, const unsigned chunkSize, const unsigned blockSize, const unsigned octaves)

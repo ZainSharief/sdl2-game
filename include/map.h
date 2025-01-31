@@ -14,8 +14,7 @@ class Map
         SDL_Texture* texture;
 
     public:
-        Map(const unsigned, const unsigned, const unsigned, const unsigned, SDL_Renderer*);
-        void render(SDL_Renderer*);
+        Map(const unsigned, const unsigned, const unsigned, const unsigned);
 };
 
 class PerlinNoise

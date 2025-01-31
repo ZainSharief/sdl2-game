@@ -29,14 +29,14 @@ bool Player::decHealth(int value)
     }
 }
 
-void Player::setVelocity(vec2 targetVelocity)
-{
-    velocity = targetVelocity;
-}
-
 void Player::setHealth(int value)
 {
     health = value;
+}
+
+void Player::setVelocity(vec2 targetVelocity)
+{
+    velocity = targetVelocity;
 }
 
 int Player::getHealth()

@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
+#include <algorithm>
 
 #include "vec2.h"
 
@@ -14,12 +15,16 @@ class Screen
         SDL_Renderer* renderer;
 
     public:
-        Screen();
+        Screen(int, int);
         ~Screen();
 
         void display();
         void render();
+        void adjustSize(int, int);
         SDL_Renderer* getRenderer();
+
+        int getWidth();
+        int getHeight();
 };
 
 #endif

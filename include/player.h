@@ -12,8 +12,8 @@ class Player: public Object
     private:
         int health;
         int maxHealth;
-        float maxSpeed;
         vec2 velocity;
+        float maxSpeed;
 
     public:
         Player(const char*, SDL_Renderer*, int, vec2);
@@ -22,13 +22,11 @@ class Player: public Object
         bool decHealth(int);
         void setHealth(int);
         int getHealth();
-
-        void smoothVelocityUpdate(vec2, float);      
+    
         void setVelocity(vec2);
 
         float getMaxSpeed();
         vec2 getVelocity();
-        float getAcceleration();
 };
 
 #endif
